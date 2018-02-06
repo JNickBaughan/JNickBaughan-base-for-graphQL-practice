@@ -5,17 +5,16 @@ let sequelizeInstance = new sequelize(undefined, undefined, undefined, {
 });
 
 let database = {};
-//console.log(sequelize);
-database.store = sequelizeInstance.import(__dirname + '/models/store.js');
-database.book = sequelizeInstance.import(__dirname + '/models/book.js');
-database.author = sequelizeInstance.import(__dirname + '/models/author.js');
 
-//a author can write more than one book
-database.author.hasMany(database.book);
+database.property = sequelizeInstance.import(__dirname + '/models/property.js');
+database.building = sequelizeInstance.import(__dirname + '/models/building.js');
+database.unit = sequelizeInstance.import(__dirname + '/models/unit.js');
 
-database.book.belongsToMany(database.store, {through: 'Book_Store'});
-database.store.belongsToMany(database.book, {through: 'Book_Store'});
+//a property can have multiple buildings on it, but a building is only on one property
+database.property.hasMany(database.building);
 
+//a building can have many units but a unit belongs to one building
+database.building.hasMany(database.unit);
 
 
 database.sequelize = sequelize;
