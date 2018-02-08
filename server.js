@@ -1,10 +1,17 @@
 let express = require("express");
 let server = express();
+const graphqlHTTP = require('express-graphql');
+const graphQLschema = require('./data/graphQL/schema');
 let PORT = 3000;
 
 let db = require('./data/database');
 
 server.use(express.static(__dirname + '/dist'));
+
+server.use('/graphql', graphqlHTTP({
+    graphiql: true,
+    schema: graphQLschema
+}));
 
 server.get('/property/:id', function(req, res) {
     var id = parseInt(req.params.id, 10);
