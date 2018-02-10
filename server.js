@@ -55,38 +55,38 @@ server.get('/unit/:id', function(req, res) {
 db.sequelizeInstance.sync(/*{force: true}*/).then(function(){
     console.log('db is ready');
 
-    db.property.create({ name: 'Franklin West'}).then(property => {
+    // db.property.create({ name: 'Franklin West'}).then(property => {
 
-        db.building.create({ address: 'Frankling West - Bldg A', propertyId: property.id}).then(building => {
-            db.unit.create({ unitNumber: 'A', buildingId: building.id});
-            db.unit.create({ unitNumber: 'B', buildingId: building.id});
-        });
+    //     db.building.create({ address: 'Franklin West - Bldg A', propertyId: property.id}).then(building => {
+    //         db.unit.create({ unitNumber: 'A', buildingId: building.id});
+    //         db.unit.create({ unitNumber: 'B', buildingId: building.id});
+    //     });
 
-        db.building.create({ address: 'Frankling West - Bldg B', propertyId: property.id}).then(building => {
-            db.unit.create({ unitNumber: '101', buildingId: building.id});
-            db.unit.create({ unitNumber: '102', buildingId: building.id});
-            db.unit.create({ unitNumber: '201', buildingId: building.id});
-        });
+    //     db.building.create({ address: 'Franklin West - Bldg B', propertyId: property.id}).then(building => {
+    //         db.unit.create({ unitNumber: '101', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '102', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '201', buildingId: building.id});
+    //     });
         
-    })
+    // })
 
-    db.property.create({ name: 'Franklin East'}).then(property => {
+    // db.property.create({ name: 'Franklin East'}).then(property => {
 
-        db.building.create({ address: 'Frankling East ', propertyId: property.id}).then(building => {
-            db.unit.create({ unitNumber: '101', buildingId: building.id});
-            db.unit.create({ unitNumber: '102', buildingId: building.id});
-            db.unit.create({ unitNumber: '103', buildingId: building.id});
+    //     db.building.create({ address: 'Franklin East ', propertyId: property.id}).then(building => {
+    //         db.unit.create({ unitNumber: '101', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '102', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '103', buildingId: building.id});
 
-            db.unit.create({ unitNumber: '201', buildingId: building.id});
-            db.unit.create({ unitNumber: '202', buildingId: building.id});
-            db.unit.create({ unitNumber: '203', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '201', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '202', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '203', buildingId: building.id});
 
-            db.unit.create({ unitNumber: '301', buildingId: building.id});
-            db.unit.create({ unitNumber: '302', buildingId: building.id});
-            db.unit.create({ unitNumber: '303', buildingId: building.id});
-        });
+    //         db.unit.create({ unitNumber: '301', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '302', buildingId: building.id});
+    //         db.unit.create({ unitNumber: '303', buildingId: building.id});
+    //     });
         
-    })
+    // })
 
     server.listen(PORT, function(){
         console.log('server listening on port: ' + PORT);
